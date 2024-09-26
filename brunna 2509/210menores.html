@@ -13,7 +13,7 @@
         <label> Digite um número:</label><br>
         <input type="number" id="recebedora"><br>
         <button type="button" id="Armazenar"> Armazenar </button>
-        <button type="button" id="encontrarmenor"> Encontrar Menor Número </button>
+        <button type="button" onclick="encontrarmenor()"> Encontrar Menor Número </button>
     </form>
     <p id="resultado"></p>
     <script>
@@ -26,14 +26,11 @@
             }
         };
 
-        document.getElementById('encontrarmenor').onclick = function () {
+        function encontrarmenor() {
             if (numeros.length > 0) {
-                let menorNumero = numeros[0];
-                for (let i = 1; i < numeros.length; i++) {
-                    if (numeros[i] < menorNumero) {
-                        menorNumero = numeros[i];
-                    }
-                }
+                let menorNumero = Math.min(...numeros)
+
+
                 document.getElementById('resultado').innerText = "Os numeros digitados foram:" +
                     numeros.join(", ") + "\nO menor número digitado foi:" + menorNumero;
             } else {
@@ -43,7 +40,6 @@
 
 
     </script>
-
 </body>
 
 </html>
